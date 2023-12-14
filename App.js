@@ -9,19 +9,22 @@ import { useFonts } from 'expo-font';
 
 export default function App() {
   const [categorySelected, setCategorySelected] = useState("")
+  const [productSelected, setProductSelected] = useState("")
   const [fontLoaded] = useFonts(
     {
       kalnia: require('./assets/Kalnia-VariableFont.ttf'),
       rubik: require('./assets/RubikBubbles-Regular.ttf')
     }
   )
-  if(!fontLoaded) return null
+  if (!fontLoaded) return null
   return (
     <View style={styles.container}>
-      {categorySelected ? <ItemListCategories category={categorySelected} /> : <Home setCategorySelected={setCategorySelected} />}
 
-      {/* <ItemListCategories/>  */}
-      {/* <ItemDetail/> */}
+      {productSelected ? <ItemDetail productSelected={productSelected} /> :
+        categorySelected
+          ? <ItemListCategories category={categorySelected} setProductSelected={setProductSelected} />
+          : <Home setCategorySelected={setCategorySelected} />}
+
     </View>
   );
 }

@@ -6,7 +6,7 @@ import ProductItem from '../Components/ProductItem'
 import { useEffect, useState } from 'react'
 
 
-const ItemListCategories = ({category}) => {
+const ItemListCategories = ({category,setProductSelected}) => {
   const [keyword, setKeyword] = useState("")
   const [products,setProducts]=useState("")
   useEffect(()=>{
@@ -25,14 +25,14 @@ const ItemListCategories = ({category}) => {
 
   return (
     <>
-      <Header title='PRODUCTO' />
+      <Header title='Productos' />
       <Search setKeyword={setKeyword} />
       <FlatList 
       style={styles.container}
       data={products}
       keyExtractor={item=>item.id}
       renderItem={({item})=>(
-        <ProductItem producto={item}/>
+        <ProductItem producto={item} setProductSelected={setProductSelected}/>
       )}
       />
     </>
