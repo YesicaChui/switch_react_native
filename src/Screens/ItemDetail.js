@@ -3,11 +3,11 @@ import Header from '../Components/Header'
 import { colors } from '../Global/colors'
 
 
-const ItemDetail = ({ productSelected }) => {
+const ItemDetail = ({ productSelected,setProductSelected }) => {
   return (
     <>
 
-      <Header title='Detalle Producto' />
+      <Header title='Detalle Producto' setProductSelected={setProductSelected} />
       <View style={styles.container}>
         <View style={styles.caja}>
           <Text style={styles.title}>{productSelected.title}</Text>

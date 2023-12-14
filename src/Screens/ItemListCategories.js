@@ -6,7 +6,7 @@ import ProductItem from '../Components/ProductItem'
 import { useEffect, useState } from 'react'
 
 
-const ItemListCategories = ({category,setProductSelected}) => {
+const ItemListCategories = ({category,setProductSelected,setCategorySelected}) => {
   const [keyword, setKeyword] = useState("")
   const [products,setProducts]=useState("")
   useEffect(()=>{
@@ -25,7 +25,7 @@ const ItemListCategories = ({category,setProductSelected}) => {
 
   return (
     <>
-      <Header title='Productos' />
+      <Header title='Productos' setCategorySelected={setCategorySelected} />
       <Search setKeyword={setKeyword} />
       <FlatList 
       style={styles.container}

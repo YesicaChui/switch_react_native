@@ -20,9 +20,9 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      {productSelected ? <ItemDetail productSelected={productSelected} /> :
+      {productSelected ? <ItemDetail productSelected={productSelected} setProductSelected={setProductSelected} /> :
         categorySelected
-          ? <ItemListCategories category={categorySelected} setProductSelected={setProductSelected} />
+          ? <ItemListCategories category={categorySelected} setProductSelected={setProductSelected} setCategorySelected={setCategorySelected} />
           : <Home setCategorySelected={setCategorySelected} />}
 
     </View>
